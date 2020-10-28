@@ -13,6 +13,7 @@ import random
 import usb.core
 import usb.util
 import app.mp3player as mp3player
+import subprocess
 
 logger = logging.getLogger(__name__)
 
@@ -259,6 +260,17 @@ class Base():
                                                     pulse_count = 6, colour = self.RED)
                         if ('spotify' in tags['identifier'][identifier]) and not spotify.activated():
                             current_tag = previous_tag
+                        if ('shutdown' in tags['identifier'][identifier]):
+                            from subprocess import call
+                                call("sudo nohup shutdown -h now", shell=True)
+                        if ('volume30up' in tags['identifier'][identifier]):
+                            volume = 70
+                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            subprocess.Popen(command)
+                        if ('volume30down' in tags['identifier'][identifier]):
+                            volume = 40
+                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            subprocess.Popen(command)
                     else:
                         # Unknown tag. Display UID.
                         logger.info('Discovered new tag: %s' % identifier)
