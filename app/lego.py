@@ -108,6 +108,8 @@ class Base():
         self.OLIVE = [128,128,0]
         self.COLOURS = ['self.RED', 'self.GREEN', 'self.BLUE', 'self.PINK', 
                         'self.ORANGE', 'self.PURPLE', 'self.LBLUE', 'self.OLIVE']
+        self.OFFCOLOURS = ['self.OFF', 'self.OFF', 'self.OFF', 'self.OFF', 
+                        'self.OFF', 'self.OFF', 'self.OFF', 'self.OFF']
         self.base = self.startLego()
 
     def randomLightshow(self,duration = 60):
@@ -116,8 +118,8 @@ class Base():
         t = time.perf_counter()
         while getattr(self.lightshowThread, "do_run", True) and (time.perf_counter() - t) < duration:
             pad = random.randint(0,2)
-            self.colour = random.randint(0,len(self.COLOURS)-1)
-            self.base.switch_pad(pad,eval(self.COLOURS[self.colour]))
+            self.colour = random.randint(0,len(self.OFFCOLOURS)-1)
+            self.base.switch_pad(pad,eval(self.OFFCOLOURS[self.colour]))
             time.sleep(round(random.uniform(0,0.5), 1))
         self.base.switch_pad(0,self.OFF)
 
