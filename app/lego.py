@@ -264,16 +264,16 @@ class Base():
                         if ('shutdown' in tags['identifier'][identifier]):
                             call("sudo nohup shutdown -h now", shell=True)
                         if ('volumeup' in tags['identifier'][identifier]):
-                            volume = 94
-                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            volume = 97
+                            command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
                             subprocess.Popen(command)
                         if ('volumedown' in tags['identifier'][identifier]):
-                            volume = 60
-                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            volume = 88
+                            command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
                             subprocess.Popen(command)
                         if ('volumedefault' in tags['identifier'][identifier]):
-                            volume = 80
-                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            volume = 92
+                            command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
                             subprocess.Popen(command)
                     else:
                         # Unknown tag. Display UID.
