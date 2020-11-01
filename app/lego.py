@@ -263,12 +263,16 @@ class Base():
                             current_tag = previous_tag
                         if ('shutdown' in tags['identifier'][identifier]):
                             call("sudo nohup shutdown -h now", shell=True)
-                        if ('volume30up' in tags['identifier'][identifier]):
-                            volume = 70
+                        if ('volumeup' in tags['identifier'][identifier]):
+                            volume = 94
                             command = ["amixer", "sset", "Master", "{}%".format(volume)]
                             subprocess.Popen(command)
-                        if ('volume30down' in tags['identifier'][identifier]):
-                            volume = 40
+                        if ('volumedown' in tags['identifier'][identifier]):
+                            volume = 60
+                            command = ["amixer", "sset", "Master", "{}%".format(volume)]
+                            subprocess.Popen(command)
+                        if ('volumedefault' in tags['identifier'][identifier]):
+                            volume = 80
                             command = ["amixer", "sset", "Master", "{}%".format(volume)]
                             subprocess.Popen(command)
                     else:
