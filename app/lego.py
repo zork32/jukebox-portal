@@ -262,6 +262,10 @@ class Base():
                         if ('spotify' in tags['identifier'][identifier]) and not spotify.activated():
                             current_tag = previous_tag
                         if ('shutdown' in tags['identifier'][identifier]):
+                            # set volume to selected default value before shutdown
+                            volume = 92
+                            command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
+                            subprocess.Popen(command)
                             call("sudo nohup shutdown -h now", shell=True)
                         if ('volumeup' in tags['identifier'][identifier]):
                             volume = 97
