@@ -28,15 +28,17 @@ logger = logging.getLogger(__name__)
 os.environ['WERKZEUG_RUN_MAIN'] = 'true'
 
 # Check for updates
-stream = os.popen('git tag | tail -n 1')
-app_version = stream.read().split('\n')[0]
+# This function generates errors if no internet connection is available. Commented out for this reason.
 
-VERSION_URL = "https://api.github.com/repos/meltaxa/jukebox-portal/releases"
-url = requests.get(VERSION_URL)
-latest_version = url.json()[0]['tag_name']
+#stream = os.popen('git tag | tail -n 1')
+#app_version = stream.read().split('\n')[0]
 
-if latest_version != app_version:
-  logger.warn('Update %s available. Run install.sh to update.' % latest_version)
+#VERSION_URL = "https://api.github.com/repos/meltaxa/jukebox-portal/releases"
+#url = requests.get(VERSION_URL)
+#latest_version = url.json()[0]['tag_name']
+
+#if latest_version != app_version:
+#  logger.warn('Update %s available. Run install.sh to update.' % latest_version)
 
 app = Flask(__name__,
             static_url_path='', 
