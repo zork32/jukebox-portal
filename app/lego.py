@@ -110,7 +110,7 @@ class Base():
         self.OLIVE = [128,128,0]
         self.COLOURS = ['self.RED', 'self.GREEN', 'self.BLUE', 'self.PINK', 
                         'self.ORANGE', 'self.PURPLE', 'self.LBLUE', 'self.OLIVE']
-        self.OFFCOLOURS = ['self.OFF', 'self.OFF', 'self.OFF', 'self.OFF', 
+        self.OFFCOLOURS = ['self.OFF', 'self.OFF', 'self.OFF', 'self.OFF',
                         'self.OFF', 'self.OFF', 'self.OFF', 'self.OFF']
         self.base = self.startLego()
 
@@ -262,7 +262,6 @@ class Base():
                         if ('spotify' in tags['identifier'][identifier]) and not spotify.activated():
                             current_tag = previous_tag
                         if ('shutdown' in tags['identifier'][identifier]):
-                            # set volume to selected default value before shutdown
                             volume = 92
                             command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
                             subprocess.Popen(command)
@@ -279,6 +278,12 @@ class Base():
                             volume = 92
                             command = ["amixer", "sset", "Headphone", "{}%".format(volume)]
                             subprocess.Popen(command)
+                        if ('discoon' in tags['identifier'][identifier]):
+                            self.OFFCOLOURS = ['self.RED', 'self.GREEN', 'self.BLUE', 'self.PINK', 
+                        'self.ORANGE', 'self.PURPLE', 'self.LBLUE', 'self.OLIVE']
+                        if ('discooff' in tags['identifier'][identifier]):
+                            self.OFFCOLOURS = ['self.OFF', 'self.OFF', 'self.OFF', 'self.OFF',
+                        'self.OFF', 'self.OFF', 'self.OFF', 'self.OFF']
                     else:
                         # Unknown tag. Display UID.
                         logger.info('Discovered new tag: %s' % identifier)
