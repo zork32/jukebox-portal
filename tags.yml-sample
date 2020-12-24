@@ -1,4 +1,5 @@
 # NFC tags have unique identifiers which are assigned "Spotify URI" actions.
+# Special functions which have been implemented: shutdown, volumeup, volumedown, volumedefault, discoon, discooff
 identifier:
     04831a62714080:
         # LEGO minifigure. Play 11s into the Black Sabbath track.
@@ -21,3 +22,21 @@ identifier:
         # LEGO minifigure. Play local mp3 file.
         name: Gramatik
         mp3: justjammin.mp3
+    3fb76d75:
+        # Skylanders Schwarzer Cup
+        shutdown        
+    04208882e92b80:
+        # Disney Infinity 1 Plakette - Nemo
+        volumeup
+    0404df9a403d81:
+        # Disney Infinity 2 Plakette - Aladin
+        volumedown
+    04077e9a403d81:
+        # Disney Infinity 2 Plakette - Aladin Palast
+        volumedefault
+    4ae96322:
+        # Duplo Gelb
+        discoon
+    9f0bbe11:
+        # Duplo Blau
+        discooff
