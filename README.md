@@ -50,3 +50,8 @@ To play music you can use the following **options**:
 # Updating
 
 * Pull the latest code from the repository and run the install.sh script.
+
+# Fork specials
+
+* This Fork has the lights turned off by default
+* See 'tags.yml-sample' for special functions which have been implemented: shutdown (os shut down), volumeup, volumedown, volumedefault, discoon (random lights on), discooff (random lights off)
